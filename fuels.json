@@ -1,15 +1,70 @@
 {
-    "Enchated lavabucket": 1.25
-}
-
-{
-    "Catalysts": 3
-}
-
-{
-
-}
-
-{
     
-}
+        "Enchated lavabucket":{ 
+            "Fuel_Speed": 0.75
+        },
+        "Magma Bucket":{
+            "Fuel_Speed":0.7
+        },
+        
+        "Plasma Bucket":{
+            "Fuel_Speed":0.65
+        },
+
+        "Everburning Flame":{
+            "Fuel_Speed":0.6
+        },
+
+        "Catalysts":{
+            "Fuel_Speed": 0.33
+        },
+
+        "Hyper Catalyst":{
+            "Fuel_Speed":0.25
+        },
+
+        "Hamster wheel":{
+            "Fuel_Speed": 0.5
+        },
+
+        "Coal":{
+            "Fuel_Speed":0.95
+        },
+
+        "Block of Coal":{
+            "Fuel_Speed":0.95
+        },
+
+        "Enchanted Bread":{
+            "Fuel_Speed":0.95
+        },
+
+        "Enchanted Coal":{
+            "Fuel_Speed":0.9
+        },
+
+        "Enchanted Charcoal":{
+            "Fuel_Speed":0.8
+        },
+
+        "Solar Panel":{
+            "Fuel_Speed":0.75
+        },
+
+        "Foul Flesh":{
+            "Fuel_Speed":0.1
+        },
+        "Tasty Cheese":{
+            "Item_boost":2
+        },
+        
+        "RInferno Minion Fuel":{
+            "Fuel_Speed":0.1
+        },
+        "EInferno Minion Fuel":{
+            "Fuel_Speed":0.06
+        },
+        "LInferno Minion Fuel":{
+            "Fuel_Speed":0.05
+        }
+    }
