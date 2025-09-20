@@ -1,7 +1,7 @@
 {
     
         "Enchated lavabucket":{ 
-            "Fuel_Speed": 0.75
+            "Fuel_Speed":0.75
         },
         "Magma Bucket":{
             "Fuel_Speed":0.7
@@ -16,15 +16,15 @@
         },
 
         "Catalysts":{
-            "Fuel_Speed": 0.33
+            "Item_boost":3
         },
 
         "Hyper Catalyst":{
-            "Fuel_Speed":0.25
+            "Item_boost":4
         },
 
         "Hamster wheel":{
-            "Fuel_Speed": 0.5
+            "Fuel_Speed":0.5
         },
 
         "Coal":{
@@ -68,3 +68,4 @@
             "Fuel_Speed":0.05
         }
     }
+
