@@ -1,68 +1,76 @@
 import customtkinter as ctk
 import requests
 import json
+class minoncalc_GUI(ctk.CTk):
 
-minions = ["select minion","Cobblestone","Diamond","Melon","Potato","Pumpkin"]
-fuels = ["select fuel","Enchated lavabucket","Catalysts","Chesse","Hamster wheel"]
-teirs = ["select teir","1","2","3","4","5","6","7","8","9","10","11","12"]
-upgrades = ["select upgrade","Super_compactor","Diamond spreading","Flycatcher"]
+    def __init__(self,callback=None):
+        super().__init__()
+        #varibles
+        self.minion = ""
+        self.fuel = ""
+        self.teir = ""
+        self.upgrade1 = ""
+        self.upgrade2 = ""
+        self.choice = ""
 
-app = ctk.CTk()
-dropdown_minion = ctk.CTkOptionMenu(app, values=minions)
-dropdown_teir = ctk.CTkOptionMenu(app, values=teirs)
-dropdown_fuel = ctk.CTkOptionMenu(app, values=fuels)
-dropdown_upgrade1 = ctk.CTkOptionMenu(app, values=upgrades)
-dropdown_upgrade2 = ctk.CTkOptionMenu(app, values=upgrades)
+        self.app = ctk.CTk()
 
-dropdown_minion.place(x=0,y=0)
-dropdown_fuel.place(x=150,y=0)
-dropdown_teir.place(x=300,y=0)
-dropdown_upgrade1.place(x=450,y=0)
-dropdown_upgrade2.place(x=600,y=0)
+        self.callback = callback #so we can callback into main
+        
+        self.send_button = ctk.CTkButton(self, text="Send Info", command=self.send_info)
+        self.send_button.place(x=20, y=120)
+        # arays of options 
+        self.minions = ["select minion","Cobblestone","Diamond","Melon","Potato","Pumpkin"]
+        self.fuels = ["select fuel","Enchated lavabucket","Catalysts","Chesse","Hamster wheel"]
+        self.teirs = ["select teir","1","2","3","4","5","6","7","8","9","10","11","12"]
+        self.upgrades = ["select upgrade","Super_compactor","Diamond spreading","Flycatcher"]
 
-output_label = ctk.CTkLabel(app, text="")
-output_label.place(x=450,y=100)
+        self.app.geometry("900x700")
 
-button = ctk.CTkButton(app, text="calculate")
-button.place(x=450,y=150)
+        self.dropdown_minion = ctk.CTkOptionMenu(self, values=self.minions)
+        self.dropdown_teir = ctk.CTkOptionMenu(self, values=self.teirs)
+        self.dropdown_fuel = ctk.CTkOptionMenu(self, values=self.fuels)
+        self.dropdown_upgrade1 = ctk.CTkOptionMenu(self, values=self.upgrades)
+        self.dropdown_upgrade2 = ctk.CTkOptionMenu(self, values=self.upgrades)
 
-minion = ""
-fuel = ""
+        self.dropdown_minion.place(x=0,y=0)
+        self.dropdown_fuel.place(x=150,y=0)
+        self.dropdown_teir.place(x=300,y=0)
+        self.dropdown_upgrade1.place(x=450,y=0)
+        self.dropdown_upgrade2.place(x=600,y=0)
 
-app.geometry("900x700")
+        self.dropdown_minion.configure(command=self.minion_select)
+        self.dropdown_teir.configure(command=self.tier_sellect)
+        self.dropdown_fuel.configure(command=self.fuel_select)
+        self.dropdown_upgrade1.configure(command=self.upgrade_select1)
+        self.dropdown_upgrade2.configure(command=self.upgrade_select2)
 
+    def send_info(self):
+        if self.callback:
+            data = {
+                "minion": self.minion,
+                "fuel": self.fuel,
+                "teir": self.teir,
+                "upgrade1": self.upgrade1,
+                "upgrade2": self.upgrade2,
+            }
+            self.callback(data)
+    def minion_select(self,choice):
+        print("minion selected:",choice)
+        self.minion = choice
 
-def calculate():
-    result = 20+40*30
-    output_label.configure(text=result)
+    def fuel_select(self,choice):
+        print("fuel selected:",choice)
+        self.fuel = choice
 
-    print("calculations made")
+    def tier_sellect(self,choice):
+        print("teir selected:",choice)
+        self.teir = choice
 
-def minion_select(choice):
-    print("minion selected:",choice)
-    minion = choice
+    def upgrade_select1(self,choice):
+        print("upgrade1 selected:",choice)
+        self.upgrade1 = choice
 
-def fuel_select(choice):
-    print("fuel selected:",choice)
-    fuel = choice
-
-def tier_sellect(choice):
-    print("teir selected:",choice)
-    teir = choice
-
-def upgrade_select1(choice):
-    print("upgrade1 selected:",choice)
-    upgrade1 = choice
-
-def upgrade_select2(choice):
-    print("upgrade2 selected:",choice)
-    upgrade2 = choice
-            
-dropdown_minion.configure(command=minion_select)
-dropdown_teir.configure(command=tier_sellect)
-dropdown_fuel.configure(command=fuel_select)
-dropdown_upgrade1.configure(command=upgrade_select1)
-dropdown_upgrade2.configure(command=upgrade_select2)
-button.configure(command=calculate)
-
-app.mainloop()
+    def upgrade_select2(self,choice):
+        print("upgrade2 selected:",choice)
+        self.upgrade2 = choice
