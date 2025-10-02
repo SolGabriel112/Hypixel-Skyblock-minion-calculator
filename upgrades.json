@@ -1,0 +1,158 @@
+{
+    "upgrades": {
+      "Minion_Expander": {
+        "type": "speed_and_range",
+        "speed_multiplier": 0.95,
+        "extra_output": null,
+        "description": "Increases minion range and increases speed by 5%. Stacks when two are used (range becomes 9x9).",
+        "exclusive_minion": null,
+        "notes": null,
+        "source": "https://hypixel-skyblock.fandom.com/wiki/Minion_Upgrades"
+      },
+      "Flycatcher": {
+        "type": "speed",
+        "speed_multiplier": 0.8,
+        "extra_output": null,
+        "description": "Increases the speed of a minion by 20%.",
+        "exclusive_minion": null,
+        "notes": null,
+        "source": "https://hypixel-skyblock.fandom.com/wiki/Minion_Upgrades"
+      },
+      "Diamond_Spreading": {
+        "type": "extra_drops",
+        "speed_multiplier": 1.0,
+        "extra_output": "diamond",
+        "description": "Occasionally collects a Diamond in addition to regular resources 1/10 chnace",
+        "exclusive_minion": null,
+        "notes": "Wiki states 'occasionally' but does not give a numeric probability — fill in if you have a value.",
+        "source": "https://hypixel-skyblock.fandom.com/wiki/Minion_Upgrades"
+      },
+      "Potato_Spreading": {
+        "type": "extra_drops",
+        "speed_multiplier": 1.0,
+        "extra_output": null,
+        "description": "Occasionally collects a Potato in addition to regular resources; may be restricted to one minion per profile.",
+        "exclusive_minion": null,
+        "notes": "Wiki: 'may be used in only one minion per profile'.",
+        "source": "https://hypixel-skyblock.fandom.com/wiki/Minion_Upgrades"
+      },
+      "Krampus_Helmet": {
+        "type": "extra_drops",
+        "speed_multiplier": 1.0,
+        "extra_output": null,
+        "description": "Occasionally collects Red Gifts (holiday item).",
+        "exclusive_minion": null,
+        "notes": "Event/seasonal item.",
+        "source": "https://hypixel-skyblock.fandom.com/wiki/Minion_Upgrades"
+      },
+      "Enchanted_Egg": {
+        "type": "guaranteed_drop",
+        "speed_multiplier": 1.0,
+        "extra_output": null,
+        "description": "For Chicken minions: guarantees an egg drop after chicken spawns.",
+        "exclusive_minion": "Chicken",
+        "notes": null,
+        "source": "https://hypixel-skyblock.fandom.com/wiki/Minion_Upgrades"
+      },
+      "Flint_Shovel": {
+        "type": "guaranteed_drop",
+        "speed_multiplier": 1.0,
+        "extra_output": null,
+        "description": "For Gravel minions: guarantees flint on harvest.",
+        "exclusive_minion": "Gravel",
+        "notes": null,
+        "source": "https://hypixel-skyblock.fandom.com/wiki/Minion_Upgrades"
+      },
+      "Lesser_Soulflow_Engine": {
+        "type": "resource_conversion",
+        "speed_multiplier": 1.5,
+        "extra_output": null,
+        "description": "Reduces normal minion output but causes the minion to generate Soulflow items instead. (Wiki notes: reduces output by 50%.)",
+        "exclusive_minion": null,
+        "notes": "Effect: -50% output, creates Soulflow items (see wiki).",
+        "source": "https://hypixel-skyblock.fandom.com/wiki/Minion_Upgrades"
+      },
+      "Soulflow_Engine": {
+        "type": "resource_conversion_and_speed",
+        "speed_multiplier": null,
+        "extra_output": null,
+        "description": "Generates Soulflow items; wiki notes additional effects like increasing speed of certain minions per tier (see wiki).",
+        "exclusive_minion": null,
+        "notes": "Complex effect; check wiki for per-minion details.",
+        "source": "https://hypixel-skyblock.fandom.com/wiki/Minion_Upgrades"
+      },
+      "Corrupt_Soil": {
+        "type": "spawn_mobs",
+        "speed_multiplier": 1.0,
+        "extra_output": null,
+        "description": "Causes mob-spawning minions to spawn Corrupted Mobs / drop Corrupt Fragments.",
+        "exclusive_minion": "Mob-spawning minions",
+        "notes": null,
+        "source": "https://hypixel-skyblock.fandom.com/wiki/Minion_Upgrades"
+      },
+      "Sleepy_Hollow": {
+        "type": "extra_drops",
+        "speed_multiplier": 1.0,
+        "extra_output": null,
+        "description": "Occasionally collects Purple Candy; may be limited to one minion per profile (wiki).",
+        "exclusive_minion": null,
+        "notes": "Event/seasonal item.",
+        "source": "https://hypixel-skyblock.fandom.com/wiki/Minion_Upgrades"
+      },
+      "Auto_Smelter": {
+        "type": "utility",
+        "speed_multiplier": 1.0,
+        "extra_output": null,
+        "description": "Automatically smelts items gathered by the minion (e.g., ore -> ingot).",
+        "exclusive_minion": null,
+        "notes": null,
+        "source": "https://hypixel-skyblock.fandom.com/wiki/Minion_Upgrades"
+      },
+      "Compactor": {
+        "type": "utility",
+        "speed_multiplier": 1.0,
+        "extra_output": null,
+        "description": "Compacts resources into block form (e.g., iron => block of iron).",
+        "exclusive_minion": null,
+        "notes": "No speed boost; QoL/storage benefit.",
+        "source": "https://hypixel-skyblock.fandom.com/wiki/Minion_Upgrades"
+      },
+      "Super_Compactor_3000": {
+        "type": "utility",
+        "speed_multiplier": 1.0,
+        "extra_output": null,
+        "description": "Compacts items into their enchanted forms (e.g., enchanted iron) when enough resources are available.",
+        "exclusive_minion": null,
+        "notes": null,
+        "source": "https://hypixel-skyblock.fandom.com/wiki/Minion_Upgrades"
+      },
+      "Dwarven_Super_Compactor": {
+        "type": "utility",
+        "speed_multiplier": 1.0,
+        "extra_output": null,
+        "description": "Combines Auto Smelter and Super Compactor functionality; smelts and compacts into enchanted forms.",
+        "exclusive_minion": null,
+        "notes": "Acquired via Dwarven sources (see wiki).",
+        "source": "https://hypixel-skyblock.fandom.com/wiki/Minion_Upgrades"
+      },
+      "Enchanted_Shears": {
+        "type": "utility",
+        "speed_multiplier": 1.0,
+        "extra_output": null,
+        "description": "For Sheep: automatically shears spawned sheep to produce wool (behavior depends on sheep minion).",
+        "exclusive_minion": "Sheep",
+        "notes": null,
+        "source": "https://hypixel-skyblock.fandom.com/wiki/Minion_Upgrades"
+      },
+      "Berberis_Fuel_Injector": {
+        "type": "fuel_injector",
+        "speed_multiplier": 0.85,
+        "extra_output": "lush_bush",
+        "description": "Special item listed on the wiki (see page); behavior should be verified on wiki/game.",
+        "exclusive_minion": null,
+        "notes": "Check wiki for exact effect.",
+        "source": "https://hypixel-skyblock.fandom.com/wiki/Minion_Upgrades"
+      }
+    }
+  }
+  
