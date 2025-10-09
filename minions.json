@@ -1,0 +1,84 @@
+{
+    "minions": {
+      "Snow": {
+        "category": "misc",
+        "notes": "Time Between Actions (seconds) per tier from Hypixel Wiki. If their mined item needs to get replaced by the minion their speed is timesed by 2.",
+        "source": "Hypixel Wiki: Snow Minion",
+        "tiers": {
+          "I": 26.0,
+          "II": 26.0,
+          "III": 24.0,
+          "IV": 24.0,
+          "V": 44,
+          "VI": 44,
+          "VII": 19,
+          "VIII": 19,
+          "IX": 16,
+          "X": 16,
+          "XI": 13,
+          "XII": 11.6
+        }
+      },
+  
+      "Diamond": {
+        "category": "mining",
+        "notes": "Time Between Actions (seconds) per tier from Hypixel Wiki. If their mined item needs to get replaced by the minion their speed is timesed by 2.",
+        "source": "Hypixel Wiki: Diamond Minion",
+        "tiers": {
+          "I": 58.0,
+          "II": 58,
+          "III": 54,
+          "IV": 54,
+          "V": 50,
+          "VI": 50,
+          "VII": 44,
+          "VIII": 44,
+          "IX": 38,
+          "X": 38,
+          "XI": 30,
+          "XII": 24
+        }
+      },
+  
+      "Melon": {
+        "category": "farming",
+        "notes": "Time Between Actions (seconds) per tier from Hypixel Wiki. If their mined item needs to get replaced by the minion their speed is timesed by 2.",
+        "source": "Hypixel Wiki: Melon Minion",
+        "tiers": {
+          "I": 24.0,
+          "II": 24.0,
+          "III": 22.5,
+          "IV": 22.5,
+          "V": 21.0,
+          "VI": 21.0,
+          "VII": 18.5,
+          "VIII": 18.5,
+          "IX": 16.0,
+          "X": 16.0,
+          "XI": 13.0,
+          "XII": 10.0
+        }
+      },
+  
+      "Pumpkin": {
+        "category": "farming",
+        "notes": "Time Between Actions (seconds) per tier from Hypixel Wiki. If their mined item needs to get replaced by the minion their speed is timesed by 2.",
+        "source": "Hypixel Wiki: Pumpkin Minion",
+        "tiers": {
+          "I": 32.0,
+          "II": 32.0,
+          "III": 30.0,
+          "IV": 30.0,
+          "V": 54,
+          "VI": 54,
+          "VII": 24.0,
+          "VIII": 24.0,
+          "IX": 20.0,
+          "X": 20.0,
+          "XI": 16.0,
+          "XII": 12.0
+        }
+      }
+    }
+  }
+  
