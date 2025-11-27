@@ -5,19 +5,44 @@ class Calc:
     def __init__(self, data):
         self.data = data
 
-    def meth_chossen_upgrade(self):
-        print("later")
+        
+
+    def meth_chossen_upgrade1(self):
+        data = self.data
+        #checks what went into upgrade slot 1
+        match data["upgrade1"]:
+            case "Super_compactor":
+                print("Supercompector")
+                return "supercompector"
+            case "Diamond_spreading":
+                print("Diamond_spreading")
+                return "Diamond_spreading"
+            case "Flycatcher":
+                print("Flycatcher")
+                return("Flycatcher")
 
     def meth_chossen_upgrade2(self):
-        print("later")
+        data = self.data
+        #checks what went into upgrade slot 2
+        match data["upgrade2"]:
+            case "Super_compactor":
+                print("Supercompector")
+                return "supercompector"
+            case "Diamond_spreading":
+                print("Diamond_spreading")
+                return "Diamond_spreading"
+            case "Flycatcher":
+                print("Flycatcher")
+                return("Flycatcher")
 
     def meth_chossen_teir(self):
         data = self.data
+        #checks which teir of the minion was selected
         match data["teir"]:
             case "1":
                 print("1")
                 return "1"
-                
+
             case "2":
                 print("2")
                 return "2"
@@ -64,6 +89,7 @@ class Calc:
 
     def meth_chossen_fuel(self):
         data = self.data
+        #checks which fuel it is that has been selected
         match data["fuel"]:
             case "Enchated lavabucket":
                 print("Enchated lavabucket")
@@ -71,15 +97,16 @@ class Calc:
             case "Catalysts":
                 print("Catalysts")
                 return "Catalysts"
-            case "Chesse":
-                print("Cheese")
-                return "Cheese"
+            case "Tasty Cheese":
+                print("Tasty Cheese")
+                return "Tasty Cheese"
             case "Hamster wheel":
                 print("hamster wheel")
-                return "haster wheel"
+                return "Hamster wheel"
         
     def meth_chossen_minion(self):
         data = self.data
+        #checks which minion it is that has been selected
         match data["minion"]:
             case "Melon":
                 return "Melon"
@@ -87,7 +114,7 @@ class Calc:
                 print("cobble")
                 return "Cobblestone"
             case "Diamond":
-                print("diamond")
+                print("Diamond")
                 return "Diamond"
             case "Potato":
                 print("potato")
@@ -98,7 +125,35 @@ class Calc:
     
     def calculate(self):
         data = self.data
+
+        with open("minions.json") as f:
+            self.minion_data = json.load(f)
+        with open("fuels.json") as fuel:
+            self.fuel_data = json.load(fuel)
+        #grabs the infomation sent over so it can later be used
         chossen_minion = self.meth_chossen_minion()
-        print(chossen_minion)
         chossen_fuel = self.meth_chossen_fuel()
+        chossen_teir = self.meth_chossen_teir()
+        chossen_upgrade1 = self.meth_chossen_upgrade1()
+        chossen_upgrade2 = self.meth_chossen_upgrade2()
+        print(chossen_minion)
+        print(chossen_teir)
         print(chossen_fuel)
+        print(chossen_upgrade1)
+        print(chossen_upgrade2)
+        
+        minion = self.data["minion"]   # Example: "Pumpkin"
+        tier = self.data["teir"]       # Example: "5"
+
+        base_speed = self.minion_data["minions"][minion]["tiers"][tier]
+        speed_multiplier = self.fuel_data[chossen_fuel].get("Fuel_Speed",1)
+        item_boost = self.fuel_data[chossen_fuel].get("Item_boost",1)
+
+        print("Chosen minion:", minion)
+        print("Chosen tier:", tier)
+        print("Base speed:", base_speed)
+        print("Speed Multiplier:",speed_multiplier)
+        print("Item_boost:",item_boost)
+        speed_with_fuel = base_speed * speed_multiplier
+        print("final speed:",speed_with_fuel)
+        
