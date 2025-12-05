@@ -5,8 +5,6 @@ class Calc:
     def __init__(self, data):
         self.data = data
 
-        
-
     def meth_chossen_upgrade1(self):
         data = self.data
         #checks what went into upgrade slot 1
@@ -28,9 +26,9 @@ class Calc:
             case "Super_compactor":
                 print("Supercompector")
                 return "supercompector"
-            case "Diamond_spreading":
+            case "Diamond_Spreading":
                 print("Diamond_spreading")
-                return "Diamond_spreading"
+                return "Diamond_Spreading"
             case "Flycatcher":
                 print("Flycatcher")
                 return("Flycatcher")
@@ -110,9 +108,9 @@ class Calc:
         match data["minion"]:
             case "Melon":
                 return "Melon"
-            case "Cobblestone":
-                print("cobble")
-                return "Cobblestone"
+            case "Snow":
+                print("snow")
+                return "Snow"
             case "Diamond":
                 print("Diamond")
                 return "Diamond"
@@ -125,11 +123,20 @@ class Calc:
     
     def calculate(self):
         data = self.data
+        data = self.data
+        day = 86400
+        week = 7
+        month = 4
+
 
         with open("minions.json") as f:
             self.minion_data = json.load(f)
         with open("fuels.json") as fuel:
             self.fuel_data = json.load(fuel)
+        with open("upgrades.json") as upgrade1:
+            self.upgrade1_data = json.load(upgrade1)
+        with open("upgrades.json") as upgrade2:
+            self.upgrade2_data = json.load(upgrade2)
         #grabs the infomation sent over so it can later be used
         chossen_minion = self.meth_chossen_minion()
         chossen_fuel = self.meth_chossen_fuel()
@@ -142,18 +149,31 @@ class Calc:
         print(chossen_upgrade1)
         print(chossen_upgrade2)
         
-        minion = self.data["minion"]   # Example: "Pumpkin"
-        tier = self.data["teir"]       # Example: "5"
+        minion = self.data["minion"]# Example: "Pumpkin"
+        tier = self.data["teir"]# Example: "5"
+        
 
         base_speed = self.minion_data["minions"][minion]["tiers"][tier]
         speed_multiplier = self.fuel_data[chossen_fuel].get("Fuel_Speed",1)
         item_boost = self.fuel_data[chossen_fuel].get("Item_boost",1)
+        base_output = self.minion_data["minions"][minion]["output"]
+        upgrade_speed1 = self.upgrade1_data["upgrades"][chossen_upgrade1]["speed_multiplier"]
+        upgrade_speed2 = self.upgrade2_data["upgrades"][chossen_upgrade2]["speed_multiplier"]
 
         print("Chosen minion:", minion)
         print("Chosen tier:", tier)
         print("Base speed:", base_speed)
         print("Speed Multiplier:",speed_multiplier)
         print("Item_boost:",item_boost)
-        speed_with_fuel = base_speed * speed_multiplier
+        print("item output:",base_output*item_boost)
+        final_output = base_output*item_boost
+        print("final output",final_output)
+        print("uprage1:",upgrade_speed1)
+        print("uprage2:",upgrade_speed2)
+        speed_with_fuel = base_speed * speed_multiplier*upgrade_speed1*upgrade_speed2
         print("final speed:",speed_with_fuel)
+        affective_actions = day/speed_with_fuel
+        print(affective_actions)
+        print("daily output:",affective_actions*final_output)
+
         
