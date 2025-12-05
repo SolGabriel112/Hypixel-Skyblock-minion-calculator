@@ -20,10 +20,10 @@ class minoncalc_GUI(ctk.CTk):
         self.send_button = ctk.CTkButton(self, text="Send Info", command=self.send_info)
         self.send_button.place(x=20, y=120)
         # arays of options 
-        self.minions = ["select minion","Cobblestone","Diamond","Melon","Potato","Pumpkin"]
+        self.minions = ["select minion","Snow","Diamond","Melon","Potato","Pumpkin"]
         self.fuels = ["select fuel","Enchated lavabucket","Catalysts","Tasty Cheese","Hamster wheel"]
         self.teirs = ["select teir","1","2","3","4","5","6","7","8","9","10","11","12"]
-        self.upgrades = ["select upgrade","Super_compactor","Diamond_spreading","Flycatcher"]
+        self.upgrades = ["select upgrade","Super_compactor","Diamond_Spreading","Flycatcher"]
         
         self.app.geometry("1080x720")
         #the dropdownmenues
