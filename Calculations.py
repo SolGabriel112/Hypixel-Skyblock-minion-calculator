@@ -9,12 +9,12 @@ class Calc:
         data = self.data
         #checks what went into upgrade slot 1
         match data["upgrade1"]:
-            case "Super_compactor":
+            case "Super_Compactor":
                 print("Supercompector")
-                return "supercompector"
-            case "Diamond_spreading":
+                return "Super_Compactor"
+            case "Diamond_Spreading":
                 print("Diamond_spreading")
-                return "Diamond_spreading"
+                return "Diamond_Spreading"
             case "Flycatcher":
                 print("Flycatcher")
                 return("Flycatcher")
@@ -23,9 +23,9 @@ class Calc:
         data = self.data
         #checks what went into upgrade slot 2
         match data["upgrade2"]:
-            case "Super_compactor":
+            case "Super_Compactor":
                 print("Supercompector")
-                return "supercompector"
+                return "Super_Compactor"
             case "Diamond_Spreading":
                 print("Diamond_spreading")
                 return "Diamond_Spreading"
@@ -127,7 +127,9 @@ class Calc:
         day = 86400
         week = 7
         month = 4
-
+        url = "https://api.hypixel.net/v2/skyblock/bazaar"
+        response = requests.get(url)
+        api_data = response.json()
 
         with open("minions.json") as f:
             self.minion_data = json.load(f)
@@ -137,6 +139,7 @@ class Calc:
             self.upgrade1_data = json.load(upgrade1)
         with open("upgrades.json") as upgrade2:
             self.upgrade2_data = json.load(upgrade2)
+        
         #grabs the infomation sent over so it can later be used
         chossen_minion = self.meth_chossen_minion()
         chossen_fuel = self.meth_chossen_fuel()
@@ -159,6 +162,7 @@ class Calc:
         base_output = self.minion_data["minions"][minion]["output"]
         upgrade_speed1 = self.upgrade1_data["upgrades"][chossen_upgrade1]["speed_multiplier"]
         upgrade_speed2 = self.upgrade2_data["upgrades"][chossen_upgrade2]["speed_multiplier"]
+        item = self.minion_data["minions"][minion]["item"]
 
         print("Chosen minion:", minion)
         print("Chosen tier:", tier)
@@ -174,6 +178,11 @@ class Calc:
         print("final speed:",speed_with_fuel)
         affective_actions = day/speed_with_fuel
         print(affective_actions)
-        print("daily output:",affective_actions*final_output)
-
-        
+        daily_output = affective_actions*final_output
+        print("daily output:",daily_output)
+        print("item:",item)
+        product = api_data["products"][item]
+        sellPrice = product["quick_status"]["sellPrice"]
+        print("sellprice:",sellPrice)
+        daily_profit = daily_output*sellPrice
+        print("daily profit:",daily_profit)
