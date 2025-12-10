@@ -23,7 +23,7 @@ class minoncalc_GUI(ctk.CTk):
         self.minions = ["select minion","Snow","Diamond","Melon","Potato","Pumpkin"]
         self.fuels = ["select fuel","Enchated lavabucket","Catalysts","Tasty Cheese","Hamster wheel"]
         self.teirs = ["select teir","1","2","3","4","5","6","7","8","9","10","11","12"]
-        self.upgrades = ["select upgrade","Super_compactor","Diamond_Spreading","Flycatcher"]
+        self.upgrades = ["select upgrade","Super_Compactor","Diamond_Spreading","Flycatcher"]
         
         self.app.geometry("1080x720")
         #the dropdownmenues
