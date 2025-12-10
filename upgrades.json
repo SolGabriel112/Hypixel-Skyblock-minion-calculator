@@ -117,7 +117,7 @@
         "notes": "No speed boost; QoL/storage benefit.",
         "source": "https://hypixel-skyblock.fandom.com/wiki/Minion_Upgrades"
       },
-      "Super_Compactor_3000": {
+      "Super_Compactor": {
         "type": "utility",
         "speed_multiplier": 1.0,
         "extra_output": null,
