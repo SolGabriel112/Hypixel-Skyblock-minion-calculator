@@ -1,1 +1,4 @@
-
+#for the grahpical user interface
+customtkinter
+#for the api requests
+requests
