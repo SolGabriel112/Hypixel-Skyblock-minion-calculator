@@ -5,6 +5,7 @@
         "notes": "Time Between Actions (seconds) per tier from Hypixel Wiki. If their mined item needs to get replaced by the minion their speed is timesed by 2.",
         "source": "Hypixel Wiki: Snow Minion",
         "output":4,
+        "item":"SNOW_BALL",
         "tiers": {
           "1": 26.0,
           "2": 26.0,
@@ -26,6 +27,7 @@
         "notes": "Time Between Actions (seconds) per tier from Hypixel Wiki. If their mined item needs to get replaced by the minion their speed is timesed by 2.",
         "source": "Hypixel Wiki: Diamond Minion",
         "output": 1,
+        "item":"DIAMOND",
         "tiers": {
           "1": 58.0,
           "2": 58,
@@ -47,6 +49,7 @@
         "notes": "Time Between Actions (seconds) per tier from Hypixel Wiki. If their mined item needs to get replaced by the minion their speed is timesed by 2.",
         "source": "Hypixel Wiki: Melon Minion",
         "output":5,
+        "item":"MELON",
         "tiers": {
           "1": 24.0,
           "2": 24.0,
@@ -68,6 +71,7 @@
         "notes": "Time Between Actions (seconds) per tier from Hypixel Wiki. If their mined item needs to get replaced by the minion their speed is timesed by 2.",
         "source": "Hypixel Wiki: Pumpkin Minion",
         "output": 1,
+        "item":"PUMPKIN",
         "tiers": {
           "1": 32.0,
           "2": 32.0,
@@ -88,6 +92,7 @@
     "notes": "Time Between Actions doubled to include replanting time, as requested.",
     "source": "Hypixel Wiki: Potato Minion (custom doubled values)",
     "output": 3,
+    "item":"POTATO_ITEM",
     "tiers": {
         "1": 40.0,
         "2": 40.0,
