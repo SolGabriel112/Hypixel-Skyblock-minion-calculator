@@ -130,6 +130,7 @@ class Calc:
         url = "https://api.hypixel.net/v2/skyblock/bazaar"
         response = requests.get(url)
         api_data = response.json()
+        amount_dia = 0
 
         with open("minions.json") as f:
             self.minion_data = json.load(f)
@@ -186,3 +187,9 @@ class Calc:
         print("sellprice:",sellPrice)
         daily_profit = daily_output*sellPrice
         print("daily profit:",daily_profit)
+        if chossen_upgrade1 == "Diamond_Spreading" or chossen_upgrade2 == "Diamond_Spreading":
+            amount_dia = daily_output/10
+            product = api_data["products"]["DIAMOND"]
+            sellPrice = product["quick_status"]["sellPrice"]
+            print("made from diamonds spreading",amount_dia*sellPrice)
+
