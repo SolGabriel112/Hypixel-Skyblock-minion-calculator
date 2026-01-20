@@ -23,11 +23,14 @@ class minoncalc_GUI(ctk.CTk):
         self.minions = ["select minion","Snow","Diamond","Melon","Potato","Pumpkin"]
         self.fuels = ["select fuel","Enchated lavabucket","Catalysts","Tasty Cheese","Hamster wheel"]
         self.teirs = ["select teir","1","2","3","4","5","6","7","8","9","10","11","12"]
+        self.amount = ["select amount","1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25",
+        "26","27","28","29","30","31"]
         self.upgrades = ["select upgrade","Super_Compactor","Diamond_Spreading","Flycatcher"]
         
         self.app.geometry("1080x720")
         #the dropdownmenues
         self.dropdown_minion = ctk.CTkOptionMenu(self, values=self.minions)
+        self.dropdown_amount = ctk.CTkOptionMenu(self, values=self.amount)
         self.dropdown_teir = ctk.CTkOptionMenu(self, values=self.teirs)
         self.dropdown_fuel = ctk.CTkOptionMenu(self, values=self.fuels)
         self.dropdown_upgrade1 = ctk.CTkOptionMenu(self, values=self.upgrades)
@@ -38,12 +41,14 @@ class minoncalc_GUI(ctk.CTk):
         self.dropdown_teir.place(x=300,y=0)
         self.dropdown_upgrade1.place(x=450,y=0)
         self.dropdown_upgrade2.place(x=600,y=0)
+        self.dropdown_amount.place(x=750,y=0)
         #taking the manu into their coresponding functions
         self.dropdown_minion.configure(command=self.minion_select)
         self.dropdown_teir.configure(command=self.tier_sellect)
         self.dropdown_fuel.configure(command=self.fuel_select)
         self.dropdown_upgrade1.configure(command=self.upgrade_select1)
         self.dropdown_upgrade2.configure(command=self.upgrade_select2)
+        self.dropdown_amount.configure(command=self.amount_select)
     #sends back the data to main
     def send_info(self):
         if self.callback:
@@ -53,6 +58,7 @@ class minoncalc_GUI(ctk.CTk):
                 "fuel": self.fuel,
                 "upgrade1": self.upgrade1,
                 "upgrade2": self.upgrade2,
+                "amount": self.amount
             }
             self.callback(data)
     #puts the selected choice into its coresponding self.
@@ -75,3 +81,7 @@ class minoncalc_GUI(ctk.CTk):
     def upgrade_select2(self,choice):
         print("upgrade2 selected:",choice)
         self.upgrade2 = choice
+
+    def amount_select(self,choice):
+        print("amount selected",choice)
+        self.amount = choice
