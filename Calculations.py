@@ -4,7 +4,73 @@ import json
 class Calc:
     def __init__(self, data):
         self.data = data
-
+    
+    def meth_chossen_amount(self):
+        data = self.data
+        match data["amount"]:
+            case "1":
+                return "1"
+            case "2":
+                return "2"
+            case "3":
+                return "3"
+            case "4":
+                return "4"
+            case "5":
+                return "5"
+            case "6":
+                return "6"
+            case "7":
+                return "7"
+            case "8":
+                return "8"
+            case "9":
+                return "9"
+            case "10":
+                return "10"
+            case "11":
+                return "11"
+            case "12":
+                return "12"
+            case "13":
+                return "13"
+            case "14":
+                return "14"
+            case "15":
+                return "15"
+            case "16":
+                return "16"
+            case "17":
+                return "17"
+            case "18":
+                return "18"
+            case "19":
+                return "19"
+            case "20":
+                return "20"
+            case "21":
+                return "21"
+            case "22":
+                return "22"
+            case "23":
+                return "23"
+            case "24":
+                return "24"
+            case "25":
+                return "25"
+            case "26":
+                return "26"
+            case "27":
+                return "27"
+            case "28":
+                return "28"
+            case "29":
+                return "29"
+            case "30":
+                return "30"
+            case "31":
+                return "31"
+                
     def meth_chossen_upgrade1(self):
         data = self.data
         #checks what went into upgrade slot 1
@@ -123,15 +189,15 @@ class Calc:
     
     def calculate(self):
         data = self.data
-        data = self.data
         day = 86400
         week = 7
         month = 4
+        amount_dia = 0
+        #varibles used for the api 
         url = "https://api.hypixel.net/v2/skyblock/bazaar"
         response = requests.get(url)
         api_data = response.json()
-        amount_dia = 0
-
+        #opens up the different Json files with the data
         with open("minions.json") as f:
             self.minion_data = json.load(f)
         with open("fuels.json") as fuel:
@@ -147,6 +213,7 @@ class Calc:
         chossen_teir = self.meth_chossen_teir()
         chossen_upgrade1 = self.meth_chossen_upgrade1()
         chossen_upgrade2 = self.meth_chossen_upgrade2()
+        chossen_amount = self.meth_chossen_amount()
         print(chossen_minion)
         print(chossen_teir)
         print(chossen_fuel)
@@ -155,8 +222,7 @@ class Calc:
         
         minion = self.data["minion"]# Example: "Pumpkin"
         tier = self.data["teir"]# Example: "5"
-        
-
+        #matches the different varibles with the the data from the json files
         base_speed = self.minion_data["minions"][minion]["tiers"][tier]
         speed_multiplier = self.fuel_data[chossen_fuel].get("Fuel_Speed",1)
         item_boost = self.fuel_data[chossen_fuel].get("Item_boost",1)
@@ -165,6 +231,8 @@ class Calc:
         upgrade_speed2 = self.upgrade2_data["upgrades"][chossen_upgrade2]["speed_multiplier"]
         item = self.minion_data["minions"][minion]["item"]
 
+        #just alot of debug print satements that will be removed later on
+        #and some important math that will be kept
         print("Chosen minion:", minion)
         print("Chosen tier:", tier)
         print("Base speed:", base_speed)
@@ -185,11 +253,12 @@ class Calc:
         product = api_data["products"][item]
         sellPrice = product["quick_status"]["sellPrice"]
         print("sellprice:",sellPrice)
-        daily_profit = daily_output*sellPrice
+        print(int(chossen_amount))
+        daily_profit = daily_output*sellPrice*int(chossen_amount)
         print("daily profit:",daily_profit)
+        #if they have diamond spreading
         if chossen_upgrade1 == "Diamond_Spreading" or chossen_upgrade2 == "Diamond_Spreading":
             amount_dia = daily_output/10
             product = api_data["products"]["DIAMOND"]
             sellPrice = product["quick_status"]["sellPrice"]
-            print("made from diamonds spreading",amount_dia*sellPrice)
-
+            print("made from diamonds spreading",amount_dia*sellPrice*int(chossen_amount))
