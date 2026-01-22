@@ -70,7 +70,7 @@ class Calc:
                 return "30"
             case "31":
                 return "31"
-                
+
     def meth_chossen_upgrade1(self):
         data = self.data
         #checks what went into upgrade slot 1
@@ -190,9 +190,8 @@ class Calc:
     def calculate(self):
         data = self.data
         day = 86400
-        week = 7
-        month = 4
         amount_dia = 0
+        profit_diamond = 0
         #varibles used for the api 
         url = "https://api.hypixel.net/v2/skyblock/bazaar"
         response = requests.get(url)
@@ -252,13 +251,21 @@ class Calc:
         print("item:",item)
         product = api_data["products"][item]
         sellPrice = product["quick_status"]["sellPrice"]
-        print("sellprice:",sellPrice)
+        print("sell price:",sellPrice)
+
         print(int(chossen_amount))
-        daily_profit = daily_output*sellPrice*int(chossen_amount)
-        print("daily profit:",daily_profit)
         #if they have diamond spreading
         if chossen_upgrade1 == "Diamond_Spreading" or chossen_upgrade2 == "Diamond_Spreading":
             amount_dia = daily_output/10
             product = api_data["products"]["DIAMOND"]
-            sellPrice = product["quick_status"]["sellPrice"]
-            print("made from diamonds spreading",amount_dia*sellPrice*int(chossen_amount))
+            sellPrice_diamond = product["quick_status"]["sellPrice"]
+            profit_diamond = amount_dia*sellPrice_diamond*int(chossen_amount)
+
+        if chossen_minion == "Melon":
+            daily_output = daily_output/9
+        daily_profit = ((daily_output*sellPrice)*int(chossen_amount))+profit_diamond
+
+        return{
+            "total_profit":daily_profit,
+            "diamondspreading":profit_diamond
+        }
