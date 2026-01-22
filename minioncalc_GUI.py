@@ -13,12 +13,19 @@ class minoncalc_GUI(ctk.CTk):
         self.upgrade2 = ""
         self.choice = ""
 
-        self.app = ctk.CTk()
-
         self.callback = callback #so we can callback into main
-        
+        #the button to confrim and start the calulation
         self.send_button = ctk.CTkButton(self, text="Send Info", command=self.send_info)
         self.send_button.place(x=20, y=120)
+        
+        #labels starting text
+        self.total_label = ctk.CTkLabel(self,text="Nothing yet")
+        self.diamond_label = ctk.CTkLabel(self,text="Nothing yet")
+
+        #placing out the labels onto the gui
+        self.total_label.place(x=170, y=120)
+        self.diamond_label.place(x=335, y=120)
+
         # arays of options 
         self.minions = ["select minion","Snow","Diamond","Melon","Potato","Pumpkin"]
         self.fuels = ["select fuel","Enchated lavabucket","Catalysts","Tasty Cheese","Hamster wheel"]
@@ -27,7 +34,7 @@ class minoncalc_GUI(ctk.CTk):
         "26","27","28","29","30","31"]
         self.upgrades = ["select upgrade","Super_Compactor","Diamond_Spreading","Flycatcher"]
         
-        self.app.geometry("1080x720")
+        self.geometry("1080x250")
         #the dropdownmenues
         self.dropdown_minion = ctk.CTkOptionMenu(self, values=self.minions)
         self.dropdown_amount = ctk.CTkOptionMenu(self, values=self.amount)
@@ -37,10 +44,10 @@ class minoncalc_GUI(ctk.CTk):
         self.dropdown_upgrade2 = ctk.CTkOptionMenu(self, values=self.upgrades)
         #menu placements
         self.dropdown_minion.place(x=0,y=0)
-        self.dropdown_fuel.place(x=150,y=0)
+        self.dropdown_fuel.place(x=140,y=0)
         self.dropdown_teir.place(x=300,y=0)
-        self.dropdown_upgrade1.place(x=450,y=0)
-        self.dropdown_upgrade2.place(x=600,y=0)
+        self.dropdown_upgrade1.place(x=440,y=0)
+        self.dropdown_upgrade2.place(x=590,y=0)
         self.dropdown_amount.place(x=750,y=0)
         #taking the manu into their coresponding functions
         self.dropdown_minion.configure(command=self.minion_select)
@@ -49,6 +56,13 @@ class minoncalc_GUI(ctk.CTk):
         self.dropdown_upgrade1.configure(command=self.upgrade_select1)
         self.dropdown_upgrade2.configure(command=self.upgrade_select2)
         self.dropdown_amount.configure(command=self.amount_select)
+    
+    #used to update the labels that are meant to show the result from the minion output
+    def update_results(self,total_profit,diamond_profit):
+        print(total_profit,diamond_profit)
+        self.total_label.configure(text=f"Total revenue: {total_profit:,.2f}")
+        self.diamond_label.configure(text=f"From diamond Spreading: {diamond_profit:,.2f}")
+
     #sends back the data to main
     def send_info(self):
         if self.callback:
