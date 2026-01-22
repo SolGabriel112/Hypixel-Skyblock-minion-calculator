@@ -5,14 +5,16 @@ import json
 Main_Data = "test"
 #takes the infomation and sends it to calculate
 def info(data):
-    global Main_Data
-    Main_Data = data
-    calculate(data=Main_Data)
+    calculate(data)
 #starts the calculations.py file 
 def calculate(data):
     print("Minion data")
     data = Calc(data)
-    data.calculate()
+    results = data.calculate()
+    print(results)
+    total_profit = results.get("total_profit",0)
+    diamond_profit = results.get("diamondspreading", 0)
+    app.update_results(total_profit,diamond_profit)
 #runs the gui file
 if __name__ == "__main__":
     app = minoncalc_GUI(callback=info)
