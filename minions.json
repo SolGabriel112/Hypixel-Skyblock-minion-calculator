@@ -49,7 +49,7 @@
         "notes": "Time Between Actions (seconds) per tier from Hypixel Wiki. If their mined item needs to get replaced by the minion their speed is timesed by 2.",
         "source": "Hypixel Wiki: Melon Minion",
         "output":5,
-        "item":"MELON",
+        "item":"MELON_BLOCK",
         "tiers": {
           "1": 24.0,
           "2": 24.0,
