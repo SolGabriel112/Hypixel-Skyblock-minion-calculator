@@ -1,5 +1,6 @@
 This is just a minion calculator calulator I made as a school project in high school.
-It works by using customtkinter for the GUI and requests for grabbing the data in the json files.
+It works by using customtkinter for the GUI and requests for grabbing the data from the API and then has json files for data keeping that we can't acces from the API
+like minining speed,average droprate, upgrades speeds and etc.
 
 You start it by running the main file which will start the GUI and let you out put in what minion you have and what fuel and upgrades the minion has.
 The program then takes that info and puts it in the calulations file where it matches that to the data in the json files to do the calulations.
