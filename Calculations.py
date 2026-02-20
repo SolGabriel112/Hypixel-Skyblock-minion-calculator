@@ -261,8 +261,6 @@ class Calc:
             sellPrice_diamond = product["quick_status"]["sellPrice"]
             profit_diamond = amount_dia*sellPrice_diamond*int(chossen_amount)
 
-        if chossen_minion == "Melon":
-            daily_output = daily_output/9
         daily_profit = ((daily_output*sellPrice)*int(chossen_amount))+profit_diamond
 
         return{
