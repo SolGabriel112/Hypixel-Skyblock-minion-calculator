@@ -11,6 +11,9 @@ Then we request the current price through the hypixel API to get the bazzar pric
 This was made for the simple reason for the fact that I needed a grade in the project so I could graduate.
 
 in the event that I decide to pickup work again here are things that might be done
+
 1: add more minions to the "minions.json" file
+
 2: optimize "calculations.py"
+
 3: rewrite to GOlang
