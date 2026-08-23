@@ -8,6 +8,10 @@ class Calc:
     def meth_chossen_amount(self):
         data = self.data
         match data["amount"]:
+        #sends out how many minions
+            #potential other way to do this
+                #varbile = data["amount"]:
+                #return varible
             case "1":
                 return "1"
             case "2":
