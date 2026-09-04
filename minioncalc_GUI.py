@@ -7,12 +7,13 @@ class minoncalc_GUI(ctk.CTk):
         super().__init__()
         #varibles to hold the option you choose
         self.minion = ""
-        self.fuel = ""
-        self.teir = ""
-        self.upgrade1 = ""
-        self.upgrade2 = ""
-        self.choice = ""
-
+        self.fuel = "_"
+        self.teir = "_"
+        self.upgrade1 = "_"
+        self.upgrade2 = "_"
+        self.choice = "_"
+        self.amount = "_"
+        
         self.callback = callback #so we can callback into main
         #the button to confrim and start the calulation
         self.send_button = ctk.CTkButton(self, text="Send Info", command=self.send_info)
@@ -30,14 +31,14 @@ class minoncalc_GUI(ctk.CTk):
         self.minions = ["select minion","Snow","Diamond","Melon","Potato","Pumpkin"]
         self.fuels = ["select fuel","Enchated lavabucket","Catalysts","Tasty Cheese","Hamster wheel"]
         self.teirs = ["select teir","1","2","3","4","5","6","7","8","9","10","11","12"]
-        self.amount = ["select amount","1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25",
-        "26","27","28","29","30","31"]
+        self.amounts = ["select amount","1","2","3","4","5","6","7","8","9","10","11","12","13","14","15"
+        ,"16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31"]
         self.upgrades = ["select upgrade","Super_Compactor","Diamond_Spreading","Flycatcher"]
         
         self.geometry("1080x250")
         #the dropdownmenues
         self.dropdown_minion = ctk.CTkOptionMenu(self, values=self.minions)
-        self.dropdown_amount = ctk.CTkOptionMenu(self, values=self.amount)
+        self.dropdown_amount = ctk.CTkOptionMenu(self, values=self.amounts)
         self.dropdown_teir = ctk.CTkOptionMenu(self, values=self.teirs)
         self.dropdown_fuel = ctk.CTkOptionMenu(self, values=self.fuels)
         self.dropdown_upgrade1 = ctk.CTkOptionMenu(self, values=self.upgrades)
@@ -49,7 +50,7 @@ class minoncalc_GUI(ctk.CTk):
         self.dropdown_upgrade1.place(x=440,y=0)
         self.dropdown_upgrade2.place(x=590,y=0)
         self.dropdown_amount.place(x=750,y=0)
-        #taking the manu into their coresponding functions
+        #taking the menu into their coresponding functions
         self.dropdown_minion.configure(command=self.minion_select)
         self.dropdown_teir.configure(command=self.tier_sellect)
         self.dropdown_fuel.configure(command=self.fuel_select)
