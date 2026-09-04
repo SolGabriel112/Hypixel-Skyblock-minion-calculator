@@ -65,5 +65,8 @@
         },
         "LInferno Minion Fuel":{
             "Fuel_Speed":0.05
+        },
+        "NO_FUEL":{
+            "Fuel_Speed":1
         }
     }
