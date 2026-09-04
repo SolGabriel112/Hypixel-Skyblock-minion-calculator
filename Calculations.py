@@ -7,170 +7,56 @@ class Calc:
     
     def meth_chossen_amount(self):
         data = self.data
-        match data["amount"]:
         #sends out how many minions
-            #potential other way to do this
-                #varbile = data["amount"]:
-                #return varible
-            case "1":
-                return "1"
-            case "2":
-                return "2"
-            case "3":
-                return "3"
-            case "4":
-                return "4"
-            case "5":
-                return "5"
-            case "6":
-                return "6"
-            case "7":
-                return "7"
-            case "8":
-                return "8"
-            case "9":
-                return "9"
-            case "10":
-                return "10"
-            case "11":
-                return "11"
-            case "12":
-                return "12"
-            case "13":
-                return "13"
-            case "14":
-                return "14"
-            case "15":
-                return "15"
-            case "16":
-                return "16"
-            case "17":
-                return "17"
-            case "18":
-                return "18"
-            case "19":
-                return "19"
-            case "20":
-                return "20"
-            case "21":
-                return "21"
-            case "22":
-                return "22"
-            case "23":
-                return "23"
-            case "24":
-                return "24"
-            case "25":
-                return "25"
-            case "26":
-                return "26"
-            case "27":
-                return "27"
-            case "28":
-                return "28"
-            case "29":
-                return "29"
-            case "30":
-                return "30"
-            case "31":
-                return "31"
+        #potential other way to do this
+        chossen_varible = data["amount"]
+        if chossen_varible == "select amount" or chossen_varible == "_":
+            chossen_varible = "1"
+            return chossen_varible
+        else:
+            return chossen_varible
 
     def meth_chossen_upgrade1(self):
         data = self.data
         #checks what went into upgrade slot 1
-        match data["upgrade1"]:
-            case "Super_Compactor":
-                print("Supercompector")
-                return "Super_Compactor"
-            case "Diamond_Spreading":
-                print("Diamond_spreading")
-                return "Diamond_Spreading"
-            case "Flycatcher":
-                print("Flycatcher")
-                return("Flycatcher")
+        chossen_varible = data["upgrade1"]
+        if chossen_varible == "select upgrade" or chossen_varible == "_":
+            chossen_varible = "Super_Compactor"
+            return chossen_varible
+        else:
+            return chossen_varible
+
 
     def meth_chossen_upgrade2(self):
         data = self.data
         #checks what went into upgrade slot 2
-        match data["upgrade2"]:
-            case "Super_Compactor":
-                print("Supercompector")
-                return "Super_Compactor"
-            case "Diamond_Spreading":
-                print("Diamond_spreading")
-                return "Diamond_Spreading"
-            case "Flycatcher":
-                print("Flycatcher")
-                return("Flycatcher")
+        chossen_varible = data["upgrade2"]
+        if chossen_varible == "select upgrade" or chossen_varible == "_":
+            chossen_varible = "Super_Compactor"
+            return chossen_varible
+        else:
+            return chossen_varible
+
 
     def meth_chossen_teir(self):
         data = self.data
         #checks which teir of the minion was selected
-        match data["teir"]:
-            case "1":
-                print("1")
-                return "1"
-
-            case "2":
-                print("2")
-                return "2"
-
-            case "3":
-                print("3")
-                return "3"
-
-            case "4":
-                print("4")
-                return "4"
-
-            case "5":
-                print("5")
-                return "5"
-
-            case "6":
-                print("6")
-                return "6"
-
-            case "7":
-                print("7")
-                return "7"
-
-            case "8":
-                print("8")
-                return "8"
-
-            case "9":
-                print("9")
-                return "9"
-
-            case "10":
-                print("10")
-                return "10"
-
-            case "11":
-                print("11")
-                return "11"
-
-            case "12":
-                print("12")
-                return "12"
+        chossen_varible = data["teir"]
+        if chossen_varible == "select teir" or chossen_varible == "_":
+            chossen_varible = "11"
+            return chossen_varible
+        else:
+            return chossen_varible
 
     def meth_chossen_fuel(self):
         data = self.data
         #checks which fuel it is that has been selected
-        match data["fuel"]:
-            case "Enchated lavabucket":
-                print("Enchated lavabucket")
-                return "Enchated lavabucket"
-            case "Catalysts":
-                print("Catalysts")
-                return "Catalysts"
-            case "Tasty Cheese":
-                print("Tasty Cheese")
-                return "Tasty Cheese"
-            case "Hamster wheel":
-                print("hamster wheel")
-                return "Hamster wheel"
+        chossen_varible = data["fuel"]
+        if chossen_varible == "select fuel" or chossen_varible == "_":
+            chossen_varible = "NO_FUEL"
+            return chossen_varible
+        else:
+            return chossen_varible
         
     def meth_chossen_minion(self):
         data = self.data
@@ -196,7 +82,7 @@ class Calc:
         day = 86400
         amount_dia = 0
         profit_diamond = 0
-        #varibles used for the api 
+        #chossen_varibles used for the api 
         url = "https://api.hypixel.net/v2/skyblock/bazaar"
         response = requests.get(url)
         api_data = response.json()
@@ -225,8 +111,8 @@ class Calc:
         
         minion = self.data["minion"]# Example: "Pumpkin"
         tier = self.data["teir"]# Example: "5"
-        #matches the different varibles with the the data from the json files
-        base_speed = self.minion_data["minions"][minion]["tiers"][tier]
+        #matches the different chossen_varibles with the the data from the json files
+        base_speed = self.minion_data["minions"][chossen_minion]["tiers"][chossen_teir]
         speed_multiplier = self.fuel_data[chossen_fuel].get("Fuel_Speed",1)
         item_boost = self.fuel_data[chossen_fuel].get("Item_boost",1)
         base_output = self.minion_data["minions"][minion]["output"]
@@ -236,8 +122,8 @@ class Calc:
 
         #just alot of debug print satements that will be removed later on
         #and some important math that will be kept
-        print("Chosen minion:", minion)
-        print("Chosen tier:", tier)
+        print("Chosen minion:", chossen_minion)
+        print("Chosen tier:", chossen_teir)
         print("Base speed:", base_speed)
         print("Speed Multiplier:",speed_multiplier)
         print("Item_boost:",item_boost)
