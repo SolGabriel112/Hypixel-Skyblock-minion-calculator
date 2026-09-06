@@ -53,7 +53,7 @@ class Calc:
         #checks which fuel it is that has been selected
         chossen_varible = data["fuel"]
         if chossen_varible == "select fuel" or chossen_varible == "_":
-            chossen_varible = "NO_FUEL"
+            chossen_varible = "No fuel"
             return chossen_varible
         else:
             return chossen_varible
@@ -61,21 +61,12 @@ class Calc:
     def meth_chossen_minion(self):
         data = self.data
         #checks which minion it is that has been selected
-        match data["minion"]:
-            case "Melon":
-                return "Melon"
-            case "Snow":
-                print("snow")
-                return "Snow"
-            case "Diamond":
-                print("Diamond")
-                return "Diamond"
-            case "Potato":
-                print("potato")
-                return "Potato"
-            case "Pumpkin":
-                print("pumpkin")
-                return "Pumpkin"
+        chossen_varible = data["minion"]
+        if chossen_varible == "select minion" or chossen_varible == "_":
+            chossen_varible = "SOMETHING IDK"#need to come up with a solution for if they don't pick a minion
+            return chossen_varible
+        else:
+            return chossen_varible
     
     def calculate(self):
         data = self.data
@@ -103,6 +94,7 @@ class Calc:
         chossen_upgrade1 = self.meth_chossen_upgrade1()
         chossen_upgrade2 = self.meth_chossen_upgrade2()
         chossen_amount = self.meth_chossen_amount()
+        #print statements for debugging
         print(chossen_minion)
         print(chossen_teir)
         print(chossen_fuel)
@@ -142,8 +134,9 @@ class Calc:
         product = api_data["products"][item]
         sellPrice = product["quick_status"]["sellPrice"]
         print("sell price:",sellPrice)
-
         print(int(chossen_amount))
+        
+
         #if they have diamond spreading
         if chossen_upgrade1 == "Diamond_Spreading" or chossen_upgrade2 == "Diamond_Spreading":
             amount_dia = daily_output/10
@@ -155,5 +148,6 @@ class Calc:
 
         return{
             "total_profit":daily_profit,
-            "diamondspreading":profit_diamond
+            "diamondspreading":profit_diamond,
+            "minion":chossen_minion
         }
